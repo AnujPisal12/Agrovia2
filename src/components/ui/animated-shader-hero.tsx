@@ -83,41 +83,31 @@ void main(void) {
   // Create flowing field pattern
   float bg=fields(vec2(st.x+T*.3,-st.y+T*.1));
   
-  // ENHANCED: Vibrant green smoky background without moving particles
-  // Create multiple layers of green smoke-like patterns
-  for (float i=1.; i<6.; i++) {
-    vec2 p = uv + vec2(sin(T*.2+i), cos(T*.15+i*0.7)) * 0.1;
+  uv*=1.-.2*(sin(T*.15)*.5+.5);
+  
+  for (float i=1.; i<10.; i++) {
+    uv+=.08*cos(i*vec2(.08+.008*i, .6)+i*i+T*.4+.08*uv.x);
+    vec2 p=uv;
     float d=length(p);
     
-    // Balanced agricultural green colors - medium atmospheric tone
-    vec3 green=vec3(0.15, 0.6, 0.3);      // Medium forest green
-    vec3 gold=vec3(0.6, 0.45, 0.08);      // Balanced harvest gold
-    vec3 earth=vec3(0.35, 0.25, 0.18);    // Medium earth brown
+    // Green to golden gradient (agricultural colors)
+    vec3 green=vec3(0.13, 0.77, 0.37);    // Fresh green
+    vec3 gold=vec3(0.96, 0.62, 0.05);     // Harvest gold
+    vec3 earth=vec3(0.45, 0.35, 0.25);    // Earth brown
     
     vec3 baseColor=mix(green, gold, sin(i*.5)*.5+.5);
-    baseColor=mix(baseColor, earth, d*.15); // Less earth mixing for more green
+    baseColor=mix(baseColor, earth, d*.3);
     
-    // Enhanced smoky green background intensity
-    float smokeIntensity = 0.008 / (d + 0.05); // Increased intensity and reduced denominator
-    col += smokeIntensity * baseColor;
+    col+=.0015/d*baseColor;
     
-    // Enhanced noise-based texture for organic feel
-    float b=noise(p*2.5+bg*2.0+T*0.08);
-    col += 0.006 * b * baseColor; // Tripled noise contribution
-    
-    // Mix with balanced field pattern for depth
-    col=mix(col,vec3(bg*.3,bg*.45,bg*.2),d*.25); // Medium field pattern mixing
+    float b=noise(i+p+bg*1.5);
+    col+=.0025*b/length(max(p,vec2(b*p.x*.015,p.y)));
+    col=mix(col,vec3(bg*.15,bg*.25,bg*.08),d*.8);
   }
   
-  // Balanced green base layer for medium atmospheric background
-  vec2 baseP = uv * 0.8;
-  float baseDist = length(baseP);
-  vec3 baseGreen = vec3(0.12, 0.5, 0.25);  // Medium base green
-  col += 0.013 * baseGreen / (baseDist + 0.3);
-  
-  // Balanced, medium atmospheric tone
-  col=pow(col, vec3(1.1)); // Balanced gamma correction
-  col*=1.6; // Medium brightness for perfect visibility
+  // Warm, earthy tone
+  col=pow(col, vec3(1.1));
+  col*=1.05;
   
   O=vec4(col,1);
 }`;
