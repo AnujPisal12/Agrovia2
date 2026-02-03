@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { Sprout, TrendingUp, Users, PackageCheck, Shield, Award, BarChart3, Truck } from "lucide-react";
 
 export default function DashboardGlassHero() {
+  const navigate = useNavigate();
+  
   return (
     <div className="relative w-full bg-zinc-950 text-white overflow-hidden">
       {/* Subtle background pattern */}
@@ -101,7 +104,10 @@ export default function DashboardGlassHero() {
 
         {/* Quick Actions Row */}
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <button className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left">
+          <button 
+            onClick={() => navigate('/reports')}
+            className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left"
+          >
             <BarChart3 className="w-5 h-5 text-green-400" />
             <div>
               <div className="text-sm font-medium text-white">Analytics</div>
@@ -109,7 +115,10 @@ export default function DashboardGlassHero() {
             </div>
           </button>
           
-          <button className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left">
+          <button 
+            onClick={() => navigate('/warehouse')}
+            className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left"
+          >
             <Truck className="w-5 h-5 text-blue-400" />
             <div>
               <div className="text-sm font-medium text-white">Logistics</div>
@@ -117,7 +126,10 @@ export default function DashboardGlassHero() {
             </div>
           </button>
           
-          <button className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left">
+          <button 
+            onClick={() => navigate('/farmer')}
+            className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left"
+          >
             <Users className="w-5 h-5 text-yellow-400" />
             <div>
               <div className="text-sm font-medium text-white">Farmers</div>
@@ -125,7 +137,10 @@ export default function DashboardGlassHero() {
             </div>
           </button>
           
-          <button className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left">
+          <button 
+            onClick={() => navigate('/grading')}
+            className="flex items-center gap-2 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-left"
+          >
             <Shield className="w-5 h-5 text-purple-400" />
             <div>
               <div className="text-sm font-medium text-white">Quality</div>

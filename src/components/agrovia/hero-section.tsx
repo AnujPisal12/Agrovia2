@@ -1,4 +1,5 @@
 import Hero from "@/components/ui/animated-shader-hero";
+import { useNavigate } from 'react-router-dom';
 import {
   Leaf,
   TrendingUp,
@@ -11,14 +12,16 @@ import {
 } from "lucide-react";
 
 const AgroviaHero = () => {
+  const navigate = useNavigate();
+  
   const handleGetStarted = () => {
     // Navigate to farmer onboarding
-    window.location.href = '/#/farmer';
+    navigate('/farmer');
   };
 
   const handleWatchDemo = () => {
     // Open demo video or tour
-    window.location.href = '/#/demo';
+    navigate('/demo');
   };
 
   return (

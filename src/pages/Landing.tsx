@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Zap, Globe, ChevronRight, BarChart3, Lock, Star, Users, TrendingUp, Award, Sparkles, ArrowUpRight, Shield } from 'lucide-react';
 import AnimatedShaderHero from '@/components/ui/animated-shader-hero';
 
 export default function Landing() {
+    const navigate = useNavigate();
+    
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -60,11 +62,11 @@ export default function Landing() {
                     buttons={{
                         primary: {
                             text: "Launch Platform",
-                            onClick: () => window.location.href = '/#/dashboard'
+                            onClick: () => navigate('/dashboard')
                         },
                         secondary: {
                             text: "View Public Ledger",
-                            onClick: () => window.location.href = '/#/traceability'
+                            onClick: () => navigate('/traceability')
                         }
                     }}
                 />
