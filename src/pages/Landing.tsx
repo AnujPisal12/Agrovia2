@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Zap, Globe, ChevronRight, BarChart3, Lock, Star, Users, TrendingUp, Award, Sparkles, ArrowUpRight, Shield } from 'lucide-react';
+import AnimatedShaderHero from '@/components/ui/animated-shader-hero';
 
 export default function Landing() {
     const scrollToSection = (id: string) => {
@@ -44,52 +45,34 @@ export default function Landing() {
                 </div>
             </nav>
 
-            {/* Enhanced Hero Section */}
-            <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-fresh/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/3 rounded-full blur-3xl" />
-                </div>
+            {/* Enhanced Hero Section with Animated Shader */}
+            <section className="relative overflow-hidden">
+                <AnimatedShaderHero
+                    trustBadge={{
+                        text: "🌾 Trusted by 500+ farms across India",
+                        icons: ["⭐", "⭐", "⭐", "⭐", "⭐"]
+                    }}
+                    headline={{
+                        line1: "The Future of",
+                        line2: "Ethical Agriculture"
+                    }}
+                    subtitle="AgroVia brings farm-to-table transparency to the modern world. Connect farmers, distributors, and consumers on a single immutable ledger."
+                    buttons={{
+                        primary: {
+                            text: "Launch Platform",
+                            onClick: () => window.location.href = '/#/dashboard'
+                        },
+                        secondary: {
+                            text: "View Public Ledger",
+                            onClick: () => window.location.href = '/#/traceability'
+                        }
+                    }}
+                />
 
-                <div className="container mx-auto px-6 relative z-10 max-w-7xl">
-                    <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in-up">
-                        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-subtle border border-primary/20 text-sm font-semibold text-primary mb-8">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-fresh opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-fresh"></span>
-                            </span>
-                            v2.0 Now Available with Blockchain Traceability
-                            <ArrowUpRight className="h-4 w-4" />
-                        </div>
-
-                        <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-tight">
-                            The Future of <br />
-                            <span className="text-gradient-fresh animate-gradient-x">Ethical Agriculture</span>
-                        </h1>
-
-                        <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            AgroVia brings farm-to-table transparency to the modern world.
-                            Connect farmers, distributors, and consumers on a single immutable ledger.
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-                            <Link to="/dashboard">
-                                <Button size="xl" variant="default" className="h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl hover:scale-105 transition-all duration-300">
-                                    Launch Platform
-                                    <Sparkles className="ml-3 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link to="/traceability">
-                                <Button size="xl" variant="outline" className="h-16 px-12 rounded-2xl text-xl hover:bg-secondary/50 border-2">
-                                    View Public Ledger
-                                    <Globe className="ml-3 h-5 w-5" />
-                                </Button>
-                            </Link>
-                        </div>
-
-                        {/* Enhanced Stats */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-16 border-t border-border/50 mt-16">
+                {/* Enhanced Stats - moved below hero */}
+                <div className="relative z-10 bg-background/95 backdrop-blur-sm border-t">
+                    <div className="container mx-auto px-6 max-w-7xl py-16">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                             {[
                                 { label: 'Batches Tracked', value: '10k+', icon: BarChart3 },
                                 { label: 'Farm Partners', value: '500+', icon: Users },

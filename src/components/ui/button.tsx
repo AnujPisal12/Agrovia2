@@ -18,7 +18,7 @@ const buttonVariants = cva(
         gradient: "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:from-primary/90 hover:to-primary/70 shadow-md hover:shadow-lg",
         "gradient-accent": "bg-gradient-to-r from-accent to-warning text-white hover:from-accent/90 hover:to-warning/90 shadow-md hover:shadow-lg",
         "gradient-fresh": "bg-gradient-to-r from-fresh to-primary text-white hover:from-fresh/90 hover:to-primary/90 shadow-md hover:shadow-lg",
-        glass: "glass hover:bg-white/80 dark:hover:bg-black/60 shadow-md hover:shadow-lg",
+        glass: "glass hover:bg-white/10 dark:hover:bg-white/5 shadow-md hover:shadow-lg",
         "glass-primary": "glass-tinted text-primary hover:bg-primary/10 dark:hover:bg-primary/20 shadow-md hover:shadow-lg",
       },
       size: {

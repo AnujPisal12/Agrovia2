@@ -13,6 +13,9 @@ import ConsumerScan from "./pages/ConsumerScan";
 import Reports from "./pages/Reports";
 import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
+import AgroviaLanding from "./pages/AgroviaLanding";
+import FeaturesGlass from "./pages/FeaturesGlass";
+import HeroDemo from "./pages/HeroDemo";
 import ComponentDemo from "./pages/ComponentDemo";
 
 const queryClient = new QueryClient();
@@ -25,6 +28,9 @@ const App = () => (
       <HashRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/agrovia" element={<AgroviaLanding />} />
+          <Route path="/features-glass" element={<FeaturesGlass />} />
+          <Route path="/hero-demo" element={<HeroDemo />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/farmer" element={<FarmerIntake />} />
           <Route path="/grading" element={<QualityGrading />} />
